@@ -16,24 +16,35 @@ namespace PingIP
             Ping consultarIP = new Ping();
             PingReply pingReply = consultarIP.Send(url);
 
-            if(pingReply.Status == IPStatus.Success)
+            try
             {
-                Console.WriteLine("Endereco {0}", pingReply.Address.ToString());
-                Console.WriteLine("Tempo resposta {0} segundos", pingReply.RoundtripTime);
-                Console.WriteLine("Tamanho buffer {0}", pingReply.Buffer.Length);
+                if (pingReply.Status == IPStatus.Success)
+                {
+                    Console.WriteLine("Endereco {0}", pingReply.Address.ToString());
+                    Console.WriteLine("Tempo resposta {0} segundos", pingReply.RoundtripTime);
+                    Console.WriteLine("Tamanho buffer {0}", pingReply.Buffer.Length);
 
-                registroLogs.Registros(url);
+                    registroLogs.Registros(url);
 
+                }
+
+
+                else
+                {
+                    Console.WriteLine("Status{0}", pingReply.Status);
+
+                    registroLogs.RegistrosErrosLogs(url);
+
+                    DisparoEmail disparoEmail = new DisparoEmail();
+                    disparoEmail.EnviarEmail();
+                }
             }
-            else
+            catch (Exception ex) 
             {
-                Console.WriteLine("Status{0}", pingReply.Status);
-
+                Console.WriteLine("Erro{0}", ex);
                 registroLogs.RegistrosErrosLogs(url);
-
-                DisparoEmail disparoEmail = new DisparoEmail();
-                disparoEmail.EnviarEmail();
             }
+
 
         }
     }
