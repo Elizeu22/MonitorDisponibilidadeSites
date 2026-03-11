@@ -1,8 +1,8 @@
 ﻿📡 Monitor de Disponibilidade de Sites / Serviços de Email
 📌 Descrição
 
-      Este projeto consiste em uma automação para monitoramento de disponibilidade que verifica periodicamente se um 
-      endereço eletrônico (site ou serviço de e-mail) está online.
+      Este projeto consiste em uma automação para monitoramento de disponibilidade que verifica periodicamente
+      se um endereço eletrônico (site ou serviço de e-mail) está online.
       Caso o sistema detecte que o endereço monitorado está offline ou inacessível, a aplicação dispara automaticamente
       um e-mail de notificação, permitindo resposta rápida ao problema.
 
