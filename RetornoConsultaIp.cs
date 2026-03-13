@@ -12,7 +12,7 @@ namespace PingIP
         {
             RegistroLogs registroLogs = new RegistroLogs();
 
-            string url = "xxxxxxxxxxxxxxxx";
+            string url = "xxxxxxxx";
             Ping consultarIP = new Ping();
             PingReply pingReply = consultarIP.Send(url);
 
@@ -27,8 +27,6 @@ namespace PingIP
                     registroLogs.Registros(url);
 
                 }
-
-
                 else
                 {
                     Console.WriteLine("Status{0}", pingReply.Status);
@@ -44,8 +42,6 @@ namespace PingIP
                 Console.WriteLine("Erro{0}", ex);
                 registroLogs.RegistrosErrosLogs(url);
             }
-
-
         }
     }
 }
